@@ -1,0 +1,40 @@
+:set number
+
+:set relativenumber
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
+
+imap <C-Space> <C-P>
+
+" Specify a directory for plugins
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" DoxygenToolkit
+Plug 'git://github.com/vim-scripts/DoxygenToolkit.vim'
+
+" Tagbar
+Plug 'git://github.com/majutsushi/tagbar'
+
+" Initialize plugin system
+call plug#end()
+
+" Shortcuts
+map <F4> :NERDTreeToggle <CR>
+map <F7< :TagbarToggle <CR>
+
+" Theme
+:set laststatus=2
+let g:airline_theme = 'luna'
+
+" Blank spaces show
+:highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
